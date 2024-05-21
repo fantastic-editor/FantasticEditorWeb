@@ -22,9 +22,9 @@ export type InfoWebDTO = {
     /**
      * 网站关键字
      */
-    webKeywords: string;
+    webKeywords?: string;
     /**
      * 网站版权
      */
-    webCopyRight: string;
+    webCopyRight?: string;
 }

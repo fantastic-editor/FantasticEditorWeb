@@ -9,11 +9,6 @@ export default defineComponent({
       return globalThrowModal
     }
   },
-  data() {
-    return {
-      modal: false
-    }
-  },
 })
 </script>
 

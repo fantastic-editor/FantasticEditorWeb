@@ -15,7 +15,7 @@ export default {
   },
   async created() {
     getGlobalInfo.value = (await GlobalInfoApi()).data!!
-    document.title = this.info.value.title
+    document.title = "⌛️等待响应"
   },
   watch: {
     info: {

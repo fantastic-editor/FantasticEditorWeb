@@ -11,13 +11,13 @@ export default defineComponent({
 
 <template>
   <div class="grid">
-    <header>
+    <header class="bg-white shadow-md">
       <HomeHeader/>
     </header>
-    <main>
+    <main class="mb-24">
       <RouterView/>
     </main>
-    <footer>
+    <footer class="bg-white">
       <HomeFooter/>
     </footer>
   </div>
