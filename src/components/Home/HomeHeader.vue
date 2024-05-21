@@ -31,13 +31,16 @@ export default defineComponent({
 
       <div class="flex items-center gap-4">
         <div class="sm:flex sm:gap-4">
-          <button class="block border border-blue-400 transition rounded px-10 py-2 text-sm font-medium text-blue-400 active:scale-110 active:ring ring-blue-200 hover:text-blue-500 hover:border-blue-500 hover:scale-105">
+          <button
+              class="block border border-blue-400 transition rounded-md px-10 py-2 text-sm font-medium text-blue-400 active:scale-110 active:ring ring-blue-200 hover:text-blue-500 hover:border-blue-500 hover:scale-105"
+              @click="$router.replace({name: 'AuthLogin', replace: true})"
+          >
             登录
           </button>
         </div>
 
         <button
-            class="block rounded bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 md:hidden"
+            class="block rounded-md bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 md:hidden"
         >
           <span class="sr-only">菜单</span>
           <svg

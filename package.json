@@ -12,6 +12,7 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "@tailwindcss/forms": "^0.5.7",
     "ant-design-vue": "^4.2.1",
     "axios": "^1.7.0",
     "vue": "^3.4.21",

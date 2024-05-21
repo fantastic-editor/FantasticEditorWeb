@@ -40,13 +40,14 @@ export default defineComponent({
 
           <div class="mt-8 flex flex-wrap gap-4 text-center">
             <button
-                class="block border border-blue-400 w-full rounded px-12 py-3 text-sm font-medium text-blue-400 hover:border-blue-500 hover:text-blue-500 shadow focus:ring ring-blue-200 sm:w-auto transition hover:scale-105 active:scale-110"
+                class="block border border-blue-400 w-full rounded-md px-12 py-3 text-sm font-medium text-blue-400 hover:border-blue-500 hover:text-blue-500 shadow focus:ring ring-blue-200 sm:w-auto transition hover:scale-105 active:scale-110"
             >
               购买咨询
             </button>
 
             <button
-                class="block rounded bg-blue-400 px-12 py-3 text-sm font-medium text-white shadow hover:bg-blue-500 hover:text-blue-50 focus:ring sm:w-auto transition hover:scale-105 active:scale-110"
+                class="block rounded-md bg-blue-400 px-12 py-3 text-sm font-medium text-white shadow hover:bg-blue-500 hover:text-blue-50 focus:ring sm:w-auto transition hover:scale-105 active:scale-110"
+                @click="$router.replace({name: 'AuthLogin', replace: true})"
             >
               免费使用
             </button>
@@ -98,6 +99,7 @@ export default defineComponent({
         <div class="grid justify-center">
           <button
               class="rounded bg-blue-400 px-24 py-3 text-sm font-medium text-white shadow hover:bg-blue-500 hover:text-blue-50 focus:ring transition hover:scale-105 active:scale-110"
+              @click="$router.replace({name: 'AuthLogin', replace: true})"
           >
             免费使用
           </button>
