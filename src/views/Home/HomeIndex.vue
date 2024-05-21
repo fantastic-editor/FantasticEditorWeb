@@ -1,13 +1,11 @@
 <script lang="ts">
 import {defineComponent} from 'vue'
-import {getGlobalInfo} from "@/constants/GlobalInfo";
+import {getGlobalInfo, getLocalInfo} from "@/constants/GlobalInfo";
 
 export default defineComponent({
   name: "HomeIndex",
-  computed: {
-    getGlobalInfo() {
-      return getGlobalInfo
-    }
+  async mounted() {
+    getLocalInfo.value.title = getGlobalInfo.value.title + " | " + getGlobalInfo.value.subTitle
   },
 })
 </script>

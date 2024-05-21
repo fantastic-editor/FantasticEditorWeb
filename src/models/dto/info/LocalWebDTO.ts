@@ -4,7 +4,7 @@
  */
 export type LocalWebDTO = {
     /**
-     * 网站后的描述(如: XXX-YYY 的 YYY 部分)
+     * 网站的名称(如: XXX-YYY 的 XXX 部分)
      */
-    subTitle: string;
+    title: string;
 }
