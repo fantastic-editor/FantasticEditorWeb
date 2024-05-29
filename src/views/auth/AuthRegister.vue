@@ -32,7 +32,7 @@ export default defineComponent({
 
         <div class="hidden lg:relative lg:block lg:p-12">
           <div class="block text-white">
-            <img :src="getGlobalInfo.webIcon" alt="" class="w-16 h-auto" @click="$router.replace({name: 'HomeIndex', replace: true})">
+            <img :src="getGlobalInfo.webIcon" alt="" class="size-16" @click="$router.replace({name: 'HomeIndex', replace: true})">
           </div>
 
           <h2 class="mt-6 text-2xl font-bold text-white sm:text-3xl md:text-4xl">
@@ -43,22 +43,17 @@ export default defineComponent({
         </div>
       </section>
 
-      <main
-          class="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:px-8 lg:py-12 xl:col-span-6"
-      >
+      <main class="flex items-center justify-center px-16 py-8 sm:px-12 lg:col-span-7 lg:px-4 lg:py-12 xl:col-span-6">
         <div class="max-w-xl lg:max-w-3xl">
           <div class="relative -mt-16 block lg:hidden">
             <img :src="getGlobalInfo.webIcon" alt="" class="size-16" @click="$router.replace({name: 'HomeIndex', replace: true})">
-
-
             <h1 class="mt-2 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl">
               欢迎来到{{ getGlobalInfo.title }}
             </h1>
-
             <p class="mt-4 leading-relaxed text-gray-500">{{ getGlobalInfo.webDescription }}</p>
           </div>
 
-          <form action="#" class="mt-8 grid grid-cols-6 gap-6">
+          <form action="#" class="mt-8 lg:mt-0 grid grid-cols-6 gap-6 lg:w-[500px]">
             <div class="col-span-6 sm:col-span-3">
               <label for="username" class="block text-sm font-medium text-gray-700">
                 用户名

@@ -1,5 +1,7 @@
-import axios from "axios";
+import axios, {type AxiosResponse} from "axios";
 import type {BaseResponse} from "@/models/BaseResponse";
+import type {ExceptionDTO} from "@/models/dto/ExceptionDTO";
+import {globalThrowModal, globalThrowTrace} from "@/constants/ThrowConstant";
 
 const BASE_API_URL: string = "http://localhost:8080";
 
@@ -30,12 +32,12 @@ enum MethodType {
  * @constructor 返回 Promise 对象
  * @returns Promise 对象
  */
-async function BaseApi<E>(
+ function BaseApi<E>(
     method: MethodType,
     url: string,
     bodyData: any,
     paramData: any,
-    pathData: string|null,
+    pathData: string | null,
     headers: any
 ): Promise<BaseResponse<E>> {
     return axios({
@@ -43,11 +45,24 @@ async function BaseApi<E>(
         url: makeURL(url, pathData),
         data: makeData(bodyData),
         params: paramData,
-        headers: headers
-    }).then((response) => {
+        headers: pushHeader(headers)
+    }).then((response: AxiosResponse<any, any>) => {
         return response.data;
     }).catch((error) => {
-        console.error(error);
+        const getResponse: BaseResponse<any> = error.response.data
+        if (getResponse) {
+            console.warn("[API] 请求出现问题", getResponse!!.code)
+            console.warn(`[API] 请求出现 ${getResponse.code} 问题`, error)
+            if (getResponse.errorMessage != null) {
+                console.log("进入")
+                globalThrowTrace.value = {
+                    cause: error.response.data.data!!.cause,
+                    stackTrace: error.response.data.data!!.stackTrace
+                }
+                globalThrowModal.value = true
+            }
+        } else {
+        }
     }).finally(() => {
         console.log("[API] 请求 [" + method + "] " + makeURL(url, pathData) + " 接口");
     });
@@ -62,7 +77,7 @@ async function BaseApi<E>(
  * @param pathData 路径数据
  * @returns 拼接后的地址
  */
-const makeURL = (url: string, pathData: string|null): string => {
+const makeURL = (url: string, pathData: string | null): string => {
     if (pathData) {
         return `${BASE_API_URL}${url}/${pathData}`;
     } else {
@@ -83,6 +98,17 @@ const makeData = (data: any): any => {
         return data;
     } else {
         return null;
+    }
+}
+
+const pushHeader = (headers: any): any => {
+    if (headers) {
+        headers["Content-Type"] = "application/json";
+        return headers;
+    } else {
+        return {
+            "Content-Type": "application/json"
+        }
     }
 }
 

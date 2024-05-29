@@ -16,9 +16,18 @@ function GlobalInfoApi(): Promise<BaseResponse<InfoWebDTO>> {
         null,
         null,
         null
-    ).then(response => {
-        return response;
-    })
+    );
 }
 
-export {GlobalInfoApi}
+function DebugApi(): Promise<BaseResponse<any>> {
+    return BaseApi<null>(
+        MethodType.GET,
+        "/debug",
+        null,
+        null,
+        null,
+        null
+    );
+}
+
+export {GlobalInfoApi, DebugApi}

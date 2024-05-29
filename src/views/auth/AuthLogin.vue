@@ -3,6 +3,7 @@ import {defineComponent} from 'vue'
 import {getGlobalInfo, getLocalInfo} from "@/constants/GlobalInfo";
 import type {InfoWebDTO} from "@/models/dto/info/InfoWebDTO";
 import type {LocalWebDTO} from "@/models/dto/info/LocalWebDTO";
+import {DebugApi} from "@/apis/InfoApi";
 
 export default defineComponent({
   name: "AuthLogin",
@@ -16,6 +17,7 @@ export default defineComponent({
   },
   created() {
       this.getLocalInfo.title = this.getGlobalInfo.title + " | 登录"
+    DebugApi();
   },
 })
 </script>
